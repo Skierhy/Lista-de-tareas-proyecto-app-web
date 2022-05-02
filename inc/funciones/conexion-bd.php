@@ -1,6 +1,6 @@
 <?php
-
-$conn = new mysqli('localhost', 'root', 'root11', 'uptask');
+// aqui configuras tu conexion a la base de datos
+$conn = new mysqli('localhost', 'root', '', 'uptask');
 
 if($conn->connect_error){
     echo $conn->connect_error;
