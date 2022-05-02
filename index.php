@@ -1,8 +1,7 @@
 <?php
 include 'inc/funciones/sesiones.php';
 include 'inc/funciones/funciones.php';  
-include 'inc/templates/header.php';
-include 'inc/templates/barra.php';
+
 
 //Obtener el ID de la URL
     $id_proyecto ="";
@@ -10,10 +9,49 @@ include 'inc/templates/barra.php';
         $id_proyecto = $_GET['id_proyecto'];
     }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UpTask</title>
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="<?php echo obtenerPaginaActual(); ?>">
 
+<div class="barra">
+    <h1>UpTask - Administración de Proyectos</h1>
+    <a href="login.php?cerrar_sesion=true">Cerrar Sesión</a>
+</div>
 <div class="contenedor">
     
-    <?php include 'inc/templates/sidebar.php'; ?>
+<aside class="contenedor-proyectos">
+        <div class="panel crear-proyecto">
+            <a href="#" class="boton">Nuevo Proyecto <i class="fas fa-plus"></i> </a>
+        </div>
+    
+        <div class="panel lista-proyectos">
+            <h2>Proyectos</h2>
+            <ul id="proyectos">
+                <?php
+                    $proyectos = obtenerProyectos();
+                    if($proyectos){
+                        foreach($proyectos as $proyecto){ ?>
+                            <li>
+                                <a href="index.php?id_proyecto=<?php echo $proyecto['id'];?>" id="proyecto:<?php echo $proyecto['id'];?>">
+                                    <?php echo $proyecto['nombre']; ?>
+                                </a>
+                            </li>
+                    <?php } //Fin foreach
+                    }//Fin if ?>
+            </ul>
+        </div>
+</aside>
 
     <main class="contenido-principal">
         <?php 
@@ -72,6 +110,16 @@ include 'inc/templates/barra.php';
     </main>
 </div><!--.contenedor-->
 
-<?php  
-include 'inc/templates/footer.php'; 
+<script src="js/sweetalert2.all.min.js"></script>
+
+<?php 
+    $actual = obtenerPaginaActual();
+    if($actual === 'crear-cuenta' || $actual === 'login'){
+        echo '<script src="js/formulario.js"></script>';
+    } else {
+        echo '<script src="js/scripts.js"></script>';
+    }
 ?>
+
+</body>
+</html>
