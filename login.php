@@ -7,42 +7,58 @@ if(isset($_GET['cerrar_sesion'])){
 } 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>UpTask</title>
+    <title>Login</title>
     <link rel="stylesheet" href="css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/sweetalert2.min.css">
-    <link rel="stylesheet" href="../Lista-de-tareas-proyecto-app-web/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body class="<?php echo obtenerPaginaActual(); ?>">
-    <div class="contenedor-formulario">
-        <h1>UpTask</h1>
-        <form id="formulario" class="caja-login" method="post">
-            <div class="campo">
-                <label for="usuario">Usuario: </label>
-                <input type="text" name="usuario" id="usuario" placeholder="Usuario">
-            </div>
-            <div class="campo">
-                <label for="password">Password: </label>
-                <input type="password" name="password" id="password" placeholder="Password">
-            </div>
-            <div class="campo enviar">
-                <input type="hidden" id="tipo" value="login">
-                <input type="submit" class="boton" value="Iniciar Sesión">
-            </div>
 
-            <div class="campo">
-                <a href="crear-cuenta.php">Crea una cuenta nueva</a>
+
+        <div class="container w-75 bg-primary mt-5 rounded shadow">
+            <div class="row aligm-items-stretch">
+                <!-- uso de breakpoint -->
+                <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded"></div>
+                <div class="col bg-white p-5 rounded-end">
+                    <div class="text-end">
+                        <img src="../img/crearlogogratis_1024x1024_01.png" width="48" alt="" />
+                        <h2 class="fw-bold text-center py-5">Bienvenido Nuestra Lista de Tareas</h2>
+                        <!-- Login -->
+                        <form id="formulario" method="post">
+                        <div class="mb-4">
+                            <label for="usuario" class="form-label">Usuario:            </label>
+                            <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario"
+                                required />
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Contraseña:            </label>
+                            <input type="password" id="password" class="form-control" name="password" placeholder="Password"
+                                required />
+                        </div>
+                        <div class="my-3">
+                            <span>No tienes una cuenta?
+                                <a href="crear-cuenta.php">Registrarte</a></span>
+                        </div>
+                        <div class="d-grid">
+
+                            <input type="hidden" id="tipo" value="login">
+                            <input type="submit" class="btn btn-primary" value="Iniciar Sesión">
+                        </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </form>
-    </div>
+        </div>
 
     <script src="js/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <?php 
     $actual = obtenerPaginaActual();
