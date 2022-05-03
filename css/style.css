@@ -1,3 +1,21 @@
+/* hecho por mi */
+.bg {
+    background-image: url(../img/2.png);
+    background-position: center center;
+}
+
+.bg2 {
+    background-image: url(../img/3.jpg);
+    background-position: center center;
+}
+
+
+.login,
+.crear-cuenta{
+    background: #ff58bd;
+    background: linear-gradient(to right, #5ed6d0, #c8c8c8);
+}
+/* termina hecho por mi  */
 html {
     box-sizing: border-box;
     height: 100%;
@@ -7,17 +25,13 @@ html {
 }
 
 body {
-    font-family: 'Lato', sans-serif;
     min-height: 100%;
 }
 .swal2-shown aside {
     height: 100vh;
 }
 /** Login **/
-.login,
-.crear-cuenta {
-    background: #455A64;
-}
+
 .contenedor-formulario {
     display: flex;
     justify-content: center;
