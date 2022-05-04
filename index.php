@@ -30,7 +30,7 @@ if (isset($_GET['id_proyecto'])) {
 	<div class="container-fluid">
 			<div class="row bg-dark bg-opacity-70 text-light mb-5">
 				<div class="col-10 pt-5">
-					<h1 class="text-center ">Lista de tareas</h1>
+					<h1 class="text-center text-warning">Lista de tareas</h1>
 				</div>
 				<div class="col-2 pt-5">
 					<a href="login.php?cerrar_sesion=true" class="btn btn-danger">Cerrar Sesión</a>
@@ -40,10 +40,10 @@ if (isset($_GET['id_proyecto'])) {
 		<div class="row">
 			<div class="col-2 bg-dark p-5">
 				<div class="crear-proyecto">
-					<a href="#" class="btn btn-success w-100 text-light">Nuevo Proyecto <i class="fas fa-plus"></i> </a>
+					<a href="#" class="btn btn-success w-100 text-light mb-3">Nuevo Proyecto <i class="fas fa-plus"></i> </a>
 				</div>
-				<div class="panel lista-proyectos">
-					<h2>Proyectos: </h2>
+				<div class="fondo_lista lista_tareas">
+					<h2 class="text-center text-warning">Proyectos: </h2>
 					<ul id="proyectos">
 						<?php
 						$proyectos = obtenerProyectos();
@@ -112,7 +112,7 @@ if (isset($_GET['id_proyecto'])) {
 					</div>
 					<div class="row">
 						<div class="col">
-							<div class="listado-pendientes">
+							<div class="lista_por_hacer listado-pendientes">
 								<ul>
 									<?php
 									//Obtiene las tareas del proyecto actual
@@ -126,7 +126,7 @@ if (isset($_GET['id_proyecto'])) {
 												<p>
 													<?php echo $tarea['nombre']; ?>
 												</p>
-												<div class="acciones">
+												<div class="espacio">
 													<i class="far fa-check-circle <?php echo ($tarea['estado'] === '1') ? 'completo' : ''; ?>"></i>
 													<i class="fas fa-trash"></i>
 												</div>
