@@ -10,15 +10,36 @@
 
 .login,
 .crear-cuenta {
-  background: #ff58bd;
-  background: linear-gradient(to right, #5ed6d0, #c8c8c8);
+  background-color: #2a2f3d;
 }
 
-.bg_color {
-  background-color: #08bd68;
-  background-color: linear-gradient(to right, #5ed6d0, #5ed6d0);
+.bg_gris {
+  background: #2a2f3d;
+}
+.bg_gris2 {
+  background-color: #2a2f3d;
 }
 
+.bg_azul {
+  background: #00f2ff;
+}
+
+.bg_naranja {
+  background: #ff6732;
+}
+
+.bg_amarillo {
+  background: #ffca00;
+  padding: 1rem;
+}
+
+.bg_blanco {
+  background: #ffffff;
+}
+
+.tamano_boton {
+  height: 3rem;
+}
 .completo {
   color: #08bd68;
 }
@@ -27,6 +48,7 @@
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
+  text-align: center;
 }
 .lista_tareas ul {
   list-style: none;
@@ -36,12 +58,19 @@
 .lista_tareas ul li {
   margin-bottom: 1.1rem;
 }
+
+@media (max-width: 992px) {
+  .lista_tareas ul li {
+    text-align: center;
+  }
+}
 .lista_tareas ul li a:hover {
   color: #ebcb40;
 }
 
 .lista_por_hacer {
-  background-color: #ffffff;
+  background-color: #2a2f3d;
+  color: #ffffff;
   max-width: 850px;
   width: 90%;
   margin: 2.1rem auto 0 auto;
