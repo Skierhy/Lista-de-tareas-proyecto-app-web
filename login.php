@@ -22,25 +22,23 @@ if(isset($_GET['cerrar_sesion'])){
 <body class="<?php echo obtenerPaginaActual(); ?>">
 
 
-        <div class="container w-75 bg-primary mt-5 rounded shadow">
+        <div class="container w-90 bg-primary mt-5 rounded shadow position-absolute top-50 start-50 translate-middle">
             <div class="row aligm-items-stretch">
                 <!-- uso de breakpoint -->
                 <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded"></div>
                 <div class="col bg-white p-5 rounded-end">
                     <div class="text-end">
-                        <img src="../img/crearlogogratis_1024x1024_01.png" width="48" alt="" />
+                        <img src="img/logo.png" width="48px" height="48px" alt="" />
                         <h2 class="fw-bold text-center py-5">Bienvenido Nuestra Lista de Tareas</h2>
                         <!-- Login -->
                         <form id="formulario" method="post">
                         <div class="mb-4">
                             <label for="usuario" class="form-label">Usuario:            </label>
-                            <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario"
-                                required />
+                            <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario"/>
                         </div>
                         <div class="mb-4">
                             <label for="password" class="form-label">Contraseña:            </label>
-                            <input type="password" id="password" class="form-control" name="password" placeholder="Password"
-                                required />
+                            <input type="password" id="password" class="form-control" name="password" placeholder="Password"/>
                         </div>
                         <div class="my-3">
                             <span>No tienes una cuenta?

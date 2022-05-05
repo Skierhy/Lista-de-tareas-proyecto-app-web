@@ -25,22 +25,22 @@ if (isset($_GET['id_proyecto'])) {
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
-<body class="<?php echo obtenerPaginaActual(); ?> bg-dark">
+<body class="<?php echo obtenerPaginaActual(); ?> bg_gris">
 
 	<div class="container-fluid">
-			<div class="row bg-dark bg-opacity-70 text-light mb-5">
-				<div class="col-10 pt-5">
-					<h1 class="text-center text-warning">Lista de tareas</h1>
+			<div class="row text-light mb-5 bg_amarillo">
+				<div class="col-12 pt-5 col-lg-10">
+					<h1 class="text-center text-dark">Lista de tareas</h1>
 				</div>
-				<div class="col-2 pt-5">
-					<a href="login.php?cerrar_sesion=true" class="btn btn-danger">Cerrar Sesión</a>
+				<div class="col-12 pt-5 col-lg-2 d-flex justify-content-center">
+					<a href="login.php?cerrar_sesion=true" class="btn btn-danger w-75"> <h4>Cerrar Sesión</h4></a>
 				</div>
 		</div>
 
 		<div class="row">
-			<div class="col-2 bg-dark p-5">
+			<div class="col-12 p-5 col-lg-2 rounded shadow p-5 bg_naranja">
 				<div class="crear-proyecto">
-					<a href="#" class="btn btn-success w-100 text-light mb-3">Nuevo Proyecto <i class="fas fa-plus"></i> </a>
+					<a href="#" class="btn btn-dark w-100 text-light mb-3"><h2>Nuevo Proyecto </h2><i class="fas fa-plus"></i> </a>
 				</div>
 				<div class="fondo_lista lista_tareas">
 					<h2 class="text-center text-warning">Proyectos: </h2>
@@ -63,24 +63,25 @@ if (isset($_GET['id_proyecto'])) {
 				</div>
 			</div>
 
-			<div class="col-10 bg-dark">
+			<div class="col-12   col-lg-10">
+				<div class="container w-100 mt-5 rounded shadow p-5 bg_azul">
 				<?php
 				$proyecto = obtenerNombreProyecto($id_proyecto);
 				if ($proyecto) {
 					?>
-					<h1 class="text-center text-light">Nombre del proyecto:
+					<h1 class="text-center text-dark">Nombre del proyecto:
 						<?php foreach ($proyecto as $nombre) {
 							?>
 							<span><?php echo $nombre['nombre']; ?></span>
 							<?php
 						}//Fin for each ?>
 					</h1>
-					<div class="container w-100 bg-dark mt-5 rounded shadow p-5">
+					
 						<form action="#">
 							<div class="row">
 								<div class="col-2"></div>
 								<div class="mb-3 col-8">
-									<label for="tarea" class="form-label h1 text-light">Nombre de la tarea: </label>
+									<label for="tarea" class="form-label h1 text-dark">Nombre de la tarea: </label>
 									<input type="text" placeholder="Nombre Tarea" class="form-control nombre-tarea">
 								</div>
 								<div class="col-2"></div>
@@ -90,7 +91,7 @@ if (isset($_GET['id_proyecto'])) {
 								<div class="enviar col-8">
 									<input type="hidden" id="id_proyecto" value="<?php echo $id_proyecto; ?>"
 									value="id_proyecto">
-									<input type="submit" class="btn btn-warning nueva-tarea w-100" value="Agregar">
+									<input type="submit" class="btn btn-dark bg_gris2 nueva-tarea w-100" value="Agregar">
 								</div>
 								<div class="col-2"></div>
 							</div>
@@ -104,15 +105,15 @@ if (isset($_GET['id_proyecto'])) {
 					echo "<h1 class='text-center text-danger'>Selecciona un proyecto a la izquierda</h1>";
 				}
 				?>
-				<div class="container w-100 bg-dark mt-5 rounded shadow p-5">
+				<div class="container w-100 mt-5 rounded shadow p-5 bg_blanco">
 					<div class="row">
 						<div class="col">
-							<h2 class="text-center text-light">Listado de tareas:</h2>
+							<h2 class="text-center text-dark">Listado de tareas:</h2>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col">
-							<div class="lista_por_hacer listado-pendientes">
+							<div class="lista_por_hacer listado-pendientes bg_gris">
 								<ul>
 									<?php
 									//Obtiene las tareas del proyecto actual
