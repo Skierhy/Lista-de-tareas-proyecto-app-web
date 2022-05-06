@@ -30,7 +30,7 @@ if (isset($_GET['id_proyecto'])) {
 	<div class="container-fluid">
 			<div class="row text-light mb-5 bg_amarillo">
 				<div class="col-12 pt-5 col-lg-10">
-					<h1 class="text-center text-dark">Lista de tareas</h1>
+					<h1 class="text-left text-dark">Proyecto Final</h1>
 				</div>
 				<div class="col-12 pt-5 col-lg-2 d-flex justify-content-center">
 					<a href="login.php?cerrar_sesion=true" class="btn btn-danger w-75"> <h4>Cerrar Sesión</h4></a>
@@ -66,13 +66,13 @@ if (isset($_GET['id_proyecto'])) {
 			<div class="col-12   col-lg-10">
 				<div class="container w-100 mt-5 rounded shadow p-5 bg_azul">
 				<?php
-				$proyecto = obtenerNombreProyecto($id_proyecto);
+				$proyecto = obtenerNombreProyecto($id_proyecto);// se recupera el nombre desde la base de datos para mostrarse en pantalla
 				if ($proyecto) {
 					?>
 					<h1 class="text-center text-dark">Nombre del proyecto:
-						<?php foreach ($proyecto as $nombre) {
+						<?php foreach ($proyecto as $nombre) {//se pide el valor del nombre al servidor
 							?>
-							<span><?php echo $nombre['nombre']; ?></span>
+							<span><?php echo $nombre['nombre']; ?>
 							<?php
 						}//Fin for each ?>
 					</h1>
@@ -80,9 +80,10 @@ if (isset($_GET['id_proyecto'])) {
 						<form action="#">
 							<div class="row">
 								<div class="col-2"></div>
+								<hr>
 								<div class="mb-3 col-8">
-									<label for="tarea" class="form-label h1 text-dark">Nombre de la tarea: </label>
-									<input type="text" placeholder="Nombre Tarea" class="form-control nombre-tarea">
+									<label for="tarea" class="form-label h3 text-dark">Nombre de la tarea: </label>
+									<input type="text" placeholder="Nombre de la Tarea" class="form-control nombre-tarea">
 								</div>
 								<div class="col-2"></div>
 							</div>
@@ -91,7 +92,7 @@ if (isset($_GET['id_proyecto'])) {
 								<div class="enviar col-8">
 									<input type="hidden" id="id_proyecto" value="<?php echo $id_proyecto; ?>"
 									value="id_proyecto">
-									<input type="submit" class="btn btn-dark bg_gris2 nueva-tarea w-100" value="Agregar">
+									<input type="submit" class="btn btn-dark bg_gris2 nueva-tarea w-100 " value="Agregar">
 								</div>
 								<div class="col-2"></div>
 							</div>
