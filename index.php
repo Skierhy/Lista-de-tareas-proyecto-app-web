@@ -4,9 +4,12 @@ include 'inc/funciones/funciones.php';
 
 
 //Obtener el ID de la URL
-$id_proyecto = "";
+$id_proyecto = "";//id del proyecto Actual
 if (isset($_GET['id_proyecto'])) {
 	$id_proyecto = $_GET['id_proyecto'];
+}
+if(isset($_SESSION['id'])) {//id del usuario
+	$id_usuario = $_SESSION['id'];
 }
 ?>
 <!DOCTYPE html>
@@ -33,10 +36,19 @@ if (isset($_GET['id_proyecto'])) {
 					<h1 class="text-left text-dark">Proyecto Final</h1>
 				</div>
 				<div class="col-12 pt-5 col-lg-2 d-flex justify-content-center">
+				<?php
+                  $usuario = obtenerNombreUsuario($id_usuario); //Se recupera el nombre de usuario por su id
+			            ?>
+						<h1 class="text-center text-dark">
+						<?php foreach ($usuario as $nombre) {//se pide el valor del nombre al servidor
+							?>
+							<span><?php echo $nombre['usuario']; ?> 
+							<?php
+						}//Fin for each ?>
+					</h1>
 					<a href="login.php?cerrar_sesion=true" class="btn btn-danger w-75"> <h4>Cerrar Sesión</h4></a>
 				</div>
 		</div>
-
 		<div class="row">
 			<div class="col-12 p-5 col-lg-2 rounded shadow p-5 bg_naranja">
 				<div class="crear-proyecto">
@@ -47,7 +59,7 @@ if (isset($_GET['id_proyecto'])) {
 					<ul id="proyectos">
 						<?php
 						$proyectos = obtenerProyectos();
-						if ($proyectos) {
+						if ($proyectos) {//Se obtienen los nombres de los proyectos ya creados y son puestos en la barra lateral
 							foreach ($proyectos as $proyecto) {
 								?>
 								<li>
@@ -62,7 +74,6 @@ if (isset($_GET['id_proyecto'])) {
 					</ul>
 				</div>
 			</div>
-
 			<div class="col-12   col-lg-10">
 				<div class="container w-100 mt-5 rounded shadow p-5 bg_azul">
 				<?php
@@ -76,7 +87,6 @@ if (isset($_GET['id_proyecto'])) {
 							<?php
 						}//Fin for each ?>
 					</h1>
-					
 						<form action="#">
 							<div class="row">
 								<div class="col-2"></div>

@@ -31,6 +31,17 @@ function obtenerNombreProyecto($id=null){
     }
 }
 
+//Obtener el nombre del Proyecto, solo el nombre
+function obtenerNombreUsuario($id=null){
+   include 'conexion-bd.php';
+   try {
+      return $conn->query("SELECT usuario FROM usuarios WHERE id={$id}");
+   } catch (Exception $e) {
+      echo "Error!: " . $e->getMessage();
+      return false;
+   }
+}
+
 //Obtener las tareas del Proyecto
 function obtenerTareasProyecto($id=null){
     include 'conexion-bd.php';
