@@ -32,20 +32,22 @@ if(isset($_SESSION['id'])) {//id del usuario
 
 	<div class="container-fluid">
 			<div class="row text-light mb-5 bg_amarillo">
-				<div class="col-12 pt-5 col-lg-10">
-					<h1 class="text-left text-dark">Proyecto Final</h1>
+				<div class="col-12 pt-5 col-lg-2 h1_centrar">
+					<h1 class="text-dark h1_centrar text-center">Proyecto Final</h1>
 				</div>
-				<div class="col-12 pt-5 col-lg-2 d-flex justify-content-center">
+				<div class="col-12 pt-5 col-lg-8 d-flex justify-content-center">
 				<?php
                   $usuario = obtenerNombreUsuario($id_usuario); //Se recupera el nombre de usuario por su id
 			            ?>
-						<h1 class="text-center text-dark">
+						<h1 class="text-center text-dark">Nombre de usuario:
 						<?php foreach ($usuario as $nombre) {//se pide el valor del nombre al servidor
 							?>
 							<span><?php echo $nombre['usuario']; ?> 
 							<?php
 						}//Fin for each ?>
 					</h1>
+				</div>
+				<div class="col-12 pt-5 col-lg-2 d-flex justify-content-center">
 					<a href="login.php?cerrar_sesion=true" class="btn btn-danger w-75"> <h4>Cerrar Sesión</h4></a>
 				</div>
 		</div>
